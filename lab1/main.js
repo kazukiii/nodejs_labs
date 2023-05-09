@@ -10,8 +10,7 @@ const main = () => {
   const mySecondArray = myArray.map((num) => num * 2)
 
   // calculate the average of mySecondArray
-  const sum = mySecondArray.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
-  const average = sum / mySecondArray.length
+  const average = mySum(...mySecondArray) / mySecondArray.length
 
   mySecondArray.forEach((num) => {
     if (num > average) {
