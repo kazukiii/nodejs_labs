@@ -5,7 +5,7 @@ const headers = {
   'Content-Type': 'text/html',
 }
 
-function handleRoot(req, res) {
+const handleRoot = (req, res) => {
   res.writeHead(200, headers)
   res.end(`
     <h1>Hello Node!</h1>
@@ -14,7 +14,7 @@ function handleRoot(req, res) {
   `)
 }
 
-function handleReadMessage(req, res) {
+const handleReadMessage = (req, res) => {
   fs.readFile('message.txt', 'utf8', (err, data) => {
     if (err) {
       if (err.code === 'ENOENT') {
@@ -39,7 +39,7 @@ function handleReadMessage(req, res) {
   })
 }
 
-function handleWriteMessage(req, res) {
+const handleWriteMessage = (req, res) => {
   if (req.method === 'GET') {
     res.writeHead(200, headers)
     res.end(`
@@ -76,12 +76,12 @@ function handleWriteMessage(req, res) {
   }
 }
 
-function handleNotFound(req, res) {
+const handleNotFound = (req, res) => {
   res.writeHead(404, headers)
   res.end('<h1>Page not found.</h1>')
 }
 
-function router(req, res) {
+const router = (req, res) => {
   switch (req.url) {
     case '/':
       handleRoot(req, res)
