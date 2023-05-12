@@ -15,12 +15,12 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', indexRouter)
 app.use('/notes', notesRouter)
 
-app.use(function (req, res, next) {
+app.use((req, res, next) => {
   res.status(404)
-  res.render('404', { title: 'Page Not Found' })
+  res.render('404')
 })
 
-app.listen(3000, function () {
+app.listen(3000, () => {
   console.log('Guestbook app listening on port 3000!')
 })
 

@@ -1,19 +1,18 @@
 const express = require('express')
 const router = express.Router()
+const { addNote, getNotes } = require('../services/noteService')
 
-const notesData = []
-
-router.get('/leave', function (req, res, next) {
-  res.render('leaveNote', { title: 'Leave a Note' })
+router.get('/leave', (req, res, next) => {
+  res.render('leaveNote')
 })
 
-router.post('/leave', function (req, res, next) {
-  notesData.push(req.body.note)
+router.post('/leave', (req, res, next) => {
+  addNote(req.body.note)
   res.redirect('/notes/read')
 })
 
-router.get('/read', function (req, res, next) {
-  res.render('readNotes', { title: 'Read Notes', notes: notesData })
+router.get('/read', (req, res, next) => {
+  res.render('readNotes', { notes: getNotes() })
 })
 
 module.exports = router
