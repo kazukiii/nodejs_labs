@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Members List</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<h1>Members List</h1>
+<ul>
+  <% members.forEach(member => { %>
+    <li>
+      <strong>ID:</strong> <%= member.id %> <br>
+      <strong>Name:</strong> <%= member.name %> <br>
+      <strong>Email:</strong> <%= member.email %>
+    </li>
+  <% }); %>
+</ul>
+</body>
+</html>

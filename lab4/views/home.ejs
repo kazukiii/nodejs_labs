@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <h1><%= msg %></h1>
+  <a href="/api/members">View Members List</a>
+  <form action="/api/members" method="post">
+    <input type="text" name="name" placeholder="Name">
+    <input type="text" name="email" placeholder="Email">
+    <button type="submit">Add Member</button>
+  </form>
+</body>
+</html>
